@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 const updateCounter = debounce(() => {
     const count = parseInt($('#count').text()) || 0;
     $('#count').text(`${count + 1} clicks on the button`);
-}, 300);
+}, 500);
 
 $(document).ready(function() {
     const $dashboard = $('<p>').text('Holberton Dashboard');
