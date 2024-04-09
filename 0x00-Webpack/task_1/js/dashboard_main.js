@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import debounce from 'lodash/debounce';
 
-const updateCounter = debounce(() => {
+const updateCounter = _.debounce(() => {
     const count = parseInt($('#count').text()) || 0;
     $('#count').text(`${count + 1} clicks on the button`);
 }, 500);
