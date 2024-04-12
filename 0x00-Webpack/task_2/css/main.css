@@ -1,0 +1,15 @@
+#logo {
+    width: 200px;
+    height: 200px;
+    background-image: url('../assets/holberton-logo.jpeg');
+    background-size: 200px 200px;
+}
+
+button {
+    float: left;
+}
+
+.counter {
+    font-weight: bold;
+    float: right;
+}
