@@ -5,11 +5,8 @@
     background-size: 200px 200px;
 }
 
-button {
-    float: left;
-}
-
-.counter {
+#count {
+    display: inline;
     font-weight: bold;
-    float: right;
+    margin: 0;
 }

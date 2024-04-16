@@ -1,55 +1,38 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const path = require("path");
 
 module.exports = {
-  mode: 'production',
-  entry: './task_1/index.js',
+  mode: "production",
+  entry: {
+    main: path.resolve(__dirname, "./js/dashboard_main.js"),
+  },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, "public"),
+    filename: "bundle.js",
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(gif|png|jp?g|svg)$/i,
         use: [
+          "file-loader",
           {
-            loader: 'file-loader',
+            loader: "image-webpack-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: 'images',
+              bypassOnDebug: true,
+              disable: true,
             },
           },
         ],
       },
     ],
   },
-  optimization: {
-    minimizer: [
-      new OptimizeCssAssetsPlugin(),
-      new TerserPlugin({
-        terserOptions: {
-          format: {
-            comments: false,
-          },
-        },
-        extractComments: false,
-      }),
-    ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './task_1/index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'styles.css',
-    }),
-  ],
 };
