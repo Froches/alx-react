@@ -1,5 +1,6 @@
 import './App.css';
 import hbtn_logo from './hbtn_logo.jpg';
+import { getFooterCopy, getFullYear } from './utils';
 
 function App() {
   return (
