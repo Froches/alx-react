@@ -1,5 +1,4 @@
 const path = require('path');
-import * as css from 'css-loader';
 
 module.exports = {
     mode: 'production',
