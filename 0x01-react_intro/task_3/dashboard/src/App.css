@@ -1,0 +1,21 @@
+.App-logo {
+  width: 20vh;
+}
+
+.App-header {
+  color: red;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid;
+}
+
+.App-body {
+  margin: 10px;
+  min-height: 35rem;
+}
+
+.App-footer {
+  border-top: 3px solid red;
+  text-align: center;
+  font-style: italic;
+}
