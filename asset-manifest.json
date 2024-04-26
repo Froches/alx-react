@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Froches/alx-react/static/css/main.f8859fce.css",
+    "main.js": "/Froches/alx-react/static/js/main.dc5c0d7e.js",
+    "static/js/453.59b8a61b.chunk.js": "/Froches/alx-react/static/js/453.59b8a61b.chunk.js",
+    "static/media/hbtn_logo.jpg": "/Froches/alx-react/static/media/hbtn_logo.24bab5d633e36ca8d17e.jpg",
+    "index.html": "/Froches/alx-react/index.html",
+    "main.f8859fce.css.map": "/Froches/alx-react/static/css/main.f8859fce.css.map",
+    "main.dc5c0d7e.js.map": "/Froches/alx-react/static/js/main.dc5c0d7e.js.map",
+    "453.59b8a61b.chunk.js.map": "/Froches/alx-react/static/js/453.59b8a61b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8859fce.css",
+    "static/js/main.dc5c0d7e.js"
+  ]
+}
