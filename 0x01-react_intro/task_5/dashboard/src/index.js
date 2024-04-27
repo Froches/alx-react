@@ -1,5 +1,4 @@
-import React from 'react';
-
-const name = prompt('Enter your name: ')
-
-console.log('Hello, {name}!');
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css";

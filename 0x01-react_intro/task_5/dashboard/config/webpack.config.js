@@ -7,6 +7,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'bundle.js',
+        publicPath: '/',
         path: path.resolve(__dirname, 'dist')
     },
     performance: {
@@ -16,12 +17,12 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
+              presets: ['@babel/preset-env', '@babel/preset-react']
             }
           }
         },
@@ -44,11 +45,8 @@ module.exports = {
       ]
     },
     devServer: {
-      port: 8564,
-      contentBase: './dist',
-      // static: {
-      //   directory: path.resolve(__dirname, 'public')
-      // },
+      port: 8080,
+      contentBase: path.join(__dirname, './dist'),
       open: true,
       hot: true
     },
