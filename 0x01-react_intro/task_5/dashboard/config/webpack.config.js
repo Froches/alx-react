@@ -4,14 +4,10 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: {
-      header: './modules/header/header.js',
-      body: './modules/body/body.js',
-      footer: './modules/footer/footer.js'
-    },
+    entry: './src/index.js',
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'public')
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
     },
     performance: {
       maxAssetSize: 100000,
@@ -32,16 +28,29 @@ module.exports = {
         {
           test: /\.css$/,
           use: ['style-loader', 'css-loader']
-        }
+        },
+        {
+            test: /\.(png|svg|jpg|jpeg|gif)$/,
+            use: [
+                {loader: 'image-webpack-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'images/',
+                    publicPath: 'images/'
+                }
+            }
+        ]
+}
       ]
     },
     devServer: {
       port: 8564,
-      contentBase: './public',
+      contentBase: './dist',
       // static: {
       //   directory: path.resolve(__dirname, 'public')
       // },
-      open: true
+      open: true,
+      hot: true
     },
     plugins: [
       new HtmlWebpackPlugin(),
