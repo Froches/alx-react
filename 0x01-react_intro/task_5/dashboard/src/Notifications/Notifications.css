@@ -1,0 +1,12 @@
+div {
+    border: 10px;
+    padding: 10px;
+}
+
+li[data-priority="default"] {
+    color: blue;
+}
+
+li[data-priority="urgent"] {
+    color: red;
+}
