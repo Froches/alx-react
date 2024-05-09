@@ -19,7 +19,7 @@ const handleButtonClick = () => {
   console.log("Close button has been clicked");
 };
 
-export default function Notifications() {
+function Notifications() {
   return (
     <div className="Notifications">
       <button
@@ -46,3 +46,5 @@ export default function Notifications() {
     </div>
   );
 }
+
+export default Notifications;
