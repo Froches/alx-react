@@ -3,6 +3,7 @@ import "./Notifications.css";
 import { getLatestNotification } from "../utils/utils";
 import closeIcon from "../assets/close-icon.png";
 import NotificationItem from "./NotificationItem";
+import NotificationItemShape from "./NotificationItemShape";
 import PropTypes from "prop-types";
 
 const buttonStyle = {
@@ -21,7 +22,10 @@ const handleButtonClick = () => {
   console.log("Close button has been clicked");
 };
 
-function Notifications({ displayDrawer=false }) {
+function Notifications({ displayDrawer=false, listNotifications=[] }) {
+  if (listNotifications.length === 0) {
+    return <div>No new notifications for now</div>
+  }
   return (
     <>
     <div className="menuItem">
@@ -47,6 +51,15 @@ function Notifications({ displayDrawer=false }) {
           data-priority="urgent"
           dangerouslySetInnerHTML={{ __html: getLatestNotification() }}
         />
+
+        {listNotifications.map((notification) => (
+          <NotificationItem
+            key={notification.id}
+            type={notification.type}
+            value={notification.value}
+            html={notification.html}
+          />
+        ))};
       </ul>
       
     </div>}
@@ -56,7 +69,8 @@ function Notifications({ displayDrawer=false }) {
 
 
 Notifications.propTypes = {
-  displayDrawer: PropTypes.bool
+  displayDrawer: PropTypes.bool,
+  listNotifications: PropTypes.arrayOf(NotificationItemShape),
 };
 
 export default Notifications;
