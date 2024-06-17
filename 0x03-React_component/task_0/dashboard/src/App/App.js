@@ -9,28 +9,36 @@ import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList';
 import { Component } from 'react';
 
-// function App() {
-//   const isLoggedIn = false;
-//   return (
-//     <>
-//     <Notifications />
-//     <div className="App">
-//       <div className="App-header">
-//         <Header />
-//       </div>
-//       <div className="App-body">
-//         {isLoggedIn ? <CourseList /> : <Login />}
-//       </div>
-
-//       <div className="App-footer">
-//         <Footer />
-//       </div>
-//     </div>
-//     </>
-//   );
-// }
-
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+  static propTypes = {
+    logOut: PropTypes.func
+  };
+
+  static defaultProps = {
+    logOut: () => {}
+  };
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  handleKeyDown(event) {
+    if (event.ctrlKey && event.key === 'h') {
+      alert('Logging you out');
+      this.props.logOut();
+    }
+  }
+
   render() {
     const listNotifications = [
       { id: 1, html: { __html: 'Notification 1' }, type: 'default', value: 'New course available' },
@@ -48,13 +56,13 @@ class App extends Component {
 
     return (
       <>
-     <Notifications />
+     <Notifications listNotifications={listNotifications} />
      <div className="App">
        <div className="App-header">
          <Header />
        </div>
        <div className="App-body">
-         {isLoggedIn ? <CourseList /> : <Login />}
+         {isLoggedIn ? <CourseList listCourses={listCourses}/> : <Login />}
        </div>
 
        <div className="App-footer">
