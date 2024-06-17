@@ -1,4 +1,3 @@
-// task_3/dashboard/src/App.test.js
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
@@ -81,5 +80,30 @@ describe('When isLoggedIn is true', () => {
   
       alertMock.mockRestore();
     });
+  });
+});
+
+describe('App component', () => {
+  let wrapper;
+  let logOutMock;
+  let alertMock;
+
+  beforeEach(() => {
+    logOutMock = jest.fn();
+    alertMock = jest.spyOn(window, 'alert').mockImplementation(() => {});
+    wrapper = shallow(<App logOut={logOutMock} />);
+  });
+
+  afterEach(() => {
+    alertMock.mockRestore();
+  });
+
+  it('should call logOut and alert when ctrl+h is pressed', () => {
+    // Simulate keydown event
+    const event = new KeyboardEvent('keydown', { ctrlKey: true, key: 'h' });
+    document.dispatchEvent(event);
+
+    expect(alertMock).toHaveBeenCalledWith('Logging you out');
+    expect(logOutMock).toHaveBeenCalled();
   });
 });

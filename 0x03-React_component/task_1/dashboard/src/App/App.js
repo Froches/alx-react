@@ -16,6 +16,14 @@ class App extends Component {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
+  static propTypes = {
+    logOut: PropTypes.func
+  };
+
+  static defaultProps = {
+    logOut: () => {}
+  };
+
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyDown);
   }
