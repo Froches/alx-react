@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import App from './App';
 import CourseList from '../CourseList/CourseList';
 import Login from '../Login/Login';
+import './App.css';
 
 describe('App Component', () => {
   it('renders without crashing', () => {
