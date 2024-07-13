@@ -77,21 +77,33 @@ class App extends Component {
 
     return (
       <>
-     <Notifications listNotifications={listNotifications} />
-     <div className="App">
-       <div className="App-header">
-         <Header />
-       </div>
-       <div className="App-body">
-         {isLoggedIn ? <BodySectionWithMarginBottom title='Course list'> <CourseList listCourses={listCourses}/></BodySectionWithMarginBottom> : <BodySectionWithMarginBottom title='Log in to continue'> <Login /></BodySectionWithMarginBottom>}
-         <BodySection title="News from the School"><p></p></BodySection>
-       </div>
+        <Notifications listNotifications={listNotifications} />
+        <div className={css(styles.app)}>
+          <div className={css(styles.header)}>
+            <Header />
+          </div>
+          <div className={css(styles.body)}>
+            {isLoggedIn ? (
+              <BodySectionWithMarginBottom title="Course list">
+                {" "}
+                <CourseList listCourses={listCourses} />
+              </BodySectionWithMarginBottom>
+            ) : (
+              <BodySectionWithMarginBottom title="Log in to continue">
+                {" "}
+                <Login />
+              </BodySectionWithMarginBottom>
+            )}
+            <BodySection title="News from the School">
+              <p></p>
+            </BodySection>
+          </div>
 
-       <div className="App-footer">
-         <Footer />
-       </div>
-     </div>
-     </>
+          <div className={css(styles.footer)}>
+            <Footer />
+          </div>
+        </div>
+      </>
     );
   }
 }

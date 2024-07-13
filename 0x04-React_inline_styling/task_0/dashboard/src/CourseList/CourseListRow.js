@@ -9,6 +9,14 @@ const rowStyle = {
   backgroundColor: "#f5f5f5ab",
 };
 
+const styles = StyleSheet.create({
+  table: {
+    width: "100%",
+    border: "1px solid #ddd",
+    borderCollapse: "collapse",
+  },
+});
+
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
   if (isHeader) {
     return (
